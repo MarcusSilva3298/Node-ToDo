@@ -8,7 +8,7 @@ const server = express();
 
 //Configuração das Bibliotecas
     //Conexão com o banco de dados
-    mongoose.connect('mongodb://localhost27017/ToDo', { useNewUrlParser: true })
+    mongoose.connect('mongodb://localhost:27017/ToDo', { useNewUrlParser: true })
         .then( response => console.log('Banco Conectado!'))
         .catch ( err => console.log(err));
 

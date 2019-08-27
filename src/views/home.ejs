@@ -1,0 +1,53 @@
+<div class = 'container col-lg-12' style='background-color: rgb(157, 225, 246); padding: 20px 30px; font-family: Verdana, Geneva, Tahoma, sans-serif;'>
+    <!-- "SEÇÃO DE BEM VINDO"-->
+    <div class = 'row' style = 'padding: 20px 30px;'>
+        <h1 style = 'margin-right: 30px;'>Olá, bem vindo ao seu Brello!</h1>
+        <h1>:)</h1>
+    </div>
+
+    <!-- "SEÇÂO READ DE TODOS"-->
+    <div class = 'row' style = 'padding: 20px 30px; margin-top: 30px;'>
+        <div>
+            <h3>Que atividades você fará hoje? </h3>
+            <!-- Se pa uma imagem ou ícone do emoji pensativo-->
+        </div>
+    </div>
+    <!-- LEGENDA DA LISTA -->
+    <div class =  'col-lg-8' style = 'padding: 20px 30px; margin-top: 30px; background-color: seagreen;'>
+        <div class = 'row' style = 'background-color: purple;'>
+            <p class = 'text-center' style = 'background-color: red; margin-right: 15px; width: 525px;'>Atividades</p>
+            <p class = 'text-center' style = 'background-color: red; margin-right: 15px; width: 200px;'>Duração</p>
+            <p class = 'text-center' style = 'background-color: red; margin-right: 15px; width: 200px;'>Horário</p>
+        </div>
+
+        <!-- ITENS DA LISTA -->
+        <% data.forEach((item) => { %>
+            <div class = 'row' style = 'background-color: purple; margin-top: 10px;'>
+                <p class = 'text-center' style = 'background-color: red; margin-right: 15px; width: 525px;'><%- item.atividade %></p>
+                <p class = 'text-center' style = 'background-color: red; margin-right: 15px; width: 200px;'><%- item.duracao %></p>
+                <p class = 'text-center' style = 'background-color: red; margin-right: 15px; width: 200px;'><%- item.horario %></p>
+            </div>
+        <% }) %>
+    </div>
+
+    <!-- INPUT DE TODOS, ficará aqui por enquanto -->
+    <div class = 'row' style = 'padding: 20px 30px; margin-top: 50px;'>
+        <div>
+            <h3>Insira uma nova atividade</h3>
+            <!-- Se pa uma imagem ou ícone de emoji-->
+        </div>
+    </div>
+    <div class = 'col-lg-8' style = 'padding: 20px 30px; margin-top: 30px; background-color: seagreen;'>
+        <form method="POST">
+            <div class = 'row'>
+                <label style = 'margin: 0px 10px;'>Atividade ou Evento: </label>
+                <input type='text' name='atividade' required style='height: 25px;' placeholder='Fazer café da manhã'>
+                <label style = 'margin: 0px 10px;'>Duração: </label>
+                <input type='text' name='duracao' required style='height: 25px;' placeholder='30 minutos'>
+                <label style = 'margin: 0px 10px;'>Horário: </label>
+                <input type='datetime-local' name='horario' required style='height: 25px;' value="2019-01-01T00:00">
+                <button class='btn' style='background-color: rgb(157, 225, 246); margin: 10px 10px -10px 30px;'>Adicionar</button>
+            </div>
+        </form>
+    </div>
+</div
