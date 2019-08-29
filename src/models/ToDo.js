@@ -1,5 +1,13 @@
 const { Schema, model } = require('mongoose')
 
+
+const AutorSchema = new Schema({
+    autor: {
+        type: String,
+        required: true
+    }
+})
+
 const ToDoSchema = new Schema({
     atividade: {
         type: String,
@@ -20,3 +28,4 @@ const ToDoSchema = new Schema({
 })
 
 module.exports = model('ToDo', ToDoSchema)
+module.exports = model('Autor', AutorSchema)
