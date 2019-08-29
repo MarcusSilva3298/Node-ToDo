@@ -12,6 +12,10 @@ const ToDoSchema = new Schema({
     horario: {
         type: String,
         required: true
+    },
+    descricao: {
+        type: String,
+        required: false
     }
 })
 

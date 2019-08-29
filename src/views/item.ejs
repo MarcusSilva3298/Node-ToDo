@@ -1,0 +1,46 @@
+<div class = 'container col-lg-12' style='background-color: #42548E; padding: 20px 30px; font-family: Verdana, Geneva, Tahoma, sans-serif;'>
+    <!-- CABEÇALHO -->
+    <div class = 'row' style = 'padding: 20px 30px; margin-top: 30px;'>
+        <div>
+            <h3>Informações da atividade: <%- data.atividade %></h3>
+            <!-- Se pa uma imagem ou ícone de emoji-->
+        </div>
+    </div>
+    <!-- Disposição das informações -->
+    <div class = 'row' style = 'padding: 20px 30px; margin-top: 30px;'>
+        <p style = 'width: 100%; margin-bottom: 20px;'>Descrição da atividade: <%- data.descricao %> </p>
+        <p style = 'margin-right: 15px;'>Duração da atividade: <%- data.duracao %></p>
+        <p>Horário e data da atividade: <%- data.horario %></p>
+    </div>
+    <!-- update de status do todo-->
+    <div class = 'row'>
+        <button class='btn' style='background-color: green; margin: 10px 10px -10px 30px;'>V Concluir</button>
+        <button class='btn' onclick = "deleteToDO('<%- data.id %>')" style='background-color: red; margin: 10px 10px -10px 30px;'>X Excluir</button>
+    </div>
+    <!-- update de dados do todo-->
+    <div class = 'row col-lg-9' style = 'padding: 20px 30px; margin-top: 30px;'>
+        <h3 style = 'width: 100%; margin-bottom: 30px;'>Atualizar dados atividade</h3>
+        <form method="POST">
+            <div class = 'row'>
+                <label style = 'margin: 0px 10px;'>Novo nome: </label>
+                <input type='text' name='nova_atividade' required style='height: 25px;' value = '<%- data.atividade %>'>
+                <label style = 'margin: 0px 10px;'>Nova duração: </label>
+                <input type='text' name='nova_duracao' required style='height: 25px;' value = '<%- data.duracao %>'>
+                <label style = 'margin: 0px 10px;'>Novo horário: </label>
+                <input type='datetime-local' name='novo_horario' required style='height: 25px; margin-right: -10px;' value = '<%- data.horario %>'>
+                <label style = 'margin: 10px 10px;'>Nova descrição: </label>
+                <textarea name='nova_descricao' style = 'height: 100px; width: 100%; margin: 10px 50px;' rows='5' cols='33'><%- data.descricao %></textarea>
+                <button class='btn' style='background-color: rgb(64, 138, 160); margin: 10px 10px -10px 30px;'>Adicionar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+        function deleteToDO(id){
+            fetch(`http://localhost:8000/${id}`, {
+                method: 'DELETE'
+            })
+            return location.replace('/')
+        }
+</script>
