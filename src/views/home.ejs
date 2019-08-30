@@ -1,32 +1,31 @@
 <div class = 'container col-lg-12' style='padding: 40px 60px; font-family: Verdana, Geneva, Tahoma, sans-serif;'>
-    <div class = 'row'>
-        <h2>Bem vindo <</h2>
-    </div>
-    <!-- "SEÇÂO READ DE TODOS"-->
     <div class = 'row' style = 'margin-top: 30px;'>
         <div>
+            <h3>Bem vindo</h3>
             <h3>Que atividades você fará hoje? </h3>
             <!-- Se pa uma imagem ou ícone do emoji pensativo-->
         </div>
     </div>
+
     <!-- LEGENDA DA LISTA -->
-    <div class =  'col-lg-10' style = 'margin-top: 30px; background-color: seagreen;'>
-        <div class = 'row' style = 'background-color: purple;'>
+    <div class =  'col-lg-10' style = 'margin-top: 30px;'>
+        <div class = 'row'>
             <p class = 'text-center' style = 'margin-right: 15px; width: 525px;'>Atividades</p>
             <p class = 'text-center' style = 'margin-right: 15px; width: 200px;'>Duração</p>
             <p class = 'text-center' style = 'width: 200px;'>Horário</p>
         </div>
 
         <!-- ITENS DA LISTA -->
-        <% data.forEach((todo) => { %>
+        <% data.forEach((name) => { %>
             <div class = 'row' style = 'background-color: purple; margin-top: 10px;'>
-                <a href ='<%- todo.id %>' class = 'text-center' style = 'margin-right: 15px; width: 525px; color: white; text-decoration: none;'><%- todo.atividade %></a>
-                <p class = 'text-center' style = 'margin-right: 15px; width: 200px;'><%- todo.duracao %></p>
-                <p class = 'text-center' style = 'margin-right: 15px; width: 200px;'><%- todo.horario %></p>
+                <a href ='<%- name.id %>' class = 'text-center' style = 'margin-right: 15px; width: 525px; color: white; text-decoration: none;'><%- name.atividade %></a>
+                <p class = 'text-center' style = 'margin-right: 15px; width: 200px;'><%- name.duracao %></p>
+                <p class = 'text-center' style = 'margin-right: 15px; width: 200px;'><%- name.horario %></p>
                 <button class='btn' style='background-color: green; margin-right: 15px;'>V Concluir</button>
-                <button class='btn' onclick = "deleteToDo('<%- todo.id %>')" style='background-color: red;'>X Excluir</button>
+                <button class='btn' onclick = "deleteToDo('<%- name.id %>')" style='background-color: red;'>X Excluir</button>
             </div>
         <% }) %>
+
     </div>
 
     <!-- INPUT DE TODOS, ficará aqui por enquanto -->
@@ -47,7 +46,7 @@
                 <input type='datetime-local' name='horario' required style='height: 25px; margin-right: -10px;' value="2019-01-01T00:00">
                 <label style = 'margin: 10px 10px;'>Descrição: </label>
                 <textarea name='descricao' style = 'height: 100px; width: 100%; margin: 10px 50px;' rows='5' cols='33'></textarea>
-                <button class='btn' style='background-color: #30364C; margin: 10px 10px -10px 30px;'>Adicionar</button>
+                <button class='btn' style='background-color: #30364C; margin-top: 20px;'>Adicionar</button>
             </div>
         </form>
     </div>

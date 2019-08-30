@@ -1,31 +1,28 @@
 const { Schema, model } = require('mongoose')
 
-
-const AutorSchema = new Schema({
+const ToDoSchema = new Schema({
+    atividade: {
+        type: String,
+        default: 'criar todo',
+        required: true
+    },
+    duracao: {
+        type: String,
+        default: '5 minutos',
+        required: true
+    },
+    horario: {
+        type: String,
+        default: '2019-01-01T00:00',
+        required: true
+    },
+    descricao: {
+        type: String,
+    },
     autor: {
         type: String,
         required: true
     }
 })
 
-const ToDoSchema = new Schema({
-    atividade: {
-        type: String,
-        required: true
-    },
-    duracao: {
-        type: String,
-        required: true
-    },
-    horario: {
-        type: String,
-        required: true
-    },
-    descricao: {
-        type: String,
-        required: false
-    }
-})
-
 module.exports = model('ToDo', ToDoSchema)
-module.exports = model('Autor', AutorSchema)

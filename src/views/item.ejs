@@ -6,17 +6,20 @@
             <!-- Se pa uma imagem ou ícone de emoji-->
         </div>
     </div>
+
     <!-- Disposição das informações -->
     <div class = 'row' style = 'margin-top: 30px;'>
         <p style = 'width: 100%; margin-bottom: 20px;'>Descrição da atividade: <%- data.descricao %> </p>
         <p style = 'margin-right: 15px;'>Duração da atividade: <%- data.duracao %></p>
         <p>Horário e data da atividade: <%- data.horario %></p>
     </div>
+
     <!-- update de status do todo-->
     <div class = 'row'>
         <button class='btn' style='margin: 10px 10px -10px 30px;'>V Concluir</button>
-        <button class='btn' onclick = "deleteToDo('<%- data.id %>')" style='background-color: red; margin: 10px 10px -10px 30px;'>X Excluir</button>
+        <button class='btn' onclick = "deleteToDo('<%- data.id %>')" style='margin: 10px 10px -10px 30px;'>X Excluir</button>
     </div>
+
     <!-- update de dados do todo-->
     <div class = 'row col-lg-9' style = 'margin-top: 30px;'>
         <h3 style = 'width: 100%; margin-bottom: 30px;'>Atualizar dados atividade</h3>

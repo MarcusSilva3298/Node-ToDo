@@ -3,7 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const expresLayouts = require('express-ejs-layouts')
+const expresLayouts = require('express-ejs-layouts');
 const server = express();
 
 //Configuração das Bibliotecas

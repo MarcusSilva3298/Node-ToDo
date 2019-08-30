@@ -1,45 +1,42 @@
 //Requisição das biblitecas e das tabelas
 const router = require('express').Router();
 const ToDo = require('./models/ToDo');
-const Autor = require('./models/ToDo')
 
 //Configuração de rotas
     //Menu
-    router.route('/menu')
+    router.route('/')
         .get((req, res) => {
-            Autor.find({})
-                .then (response => res.render('menu', { data: response }))
+            res.render('menu')
         })
 
         .post((req, res) =>{
-            const { autor } = req.body;
-            const NewAutor = new Autor({
-                autor : autor
-            })
-            NewAutor.save()
-            res.redirect('/menu')
+            res.redirect('/home/:user')
+            res.req('\${res.params.user}')
         })
-    
+
     //Página principal
-    router.route('/home/:id')
+    router.route('/home/:user')
         .get((req, res) => {
-            ToDo.find({ todo: req.params.autor })
+            ToDo.find({ name: req.params.user })
                 .then( response => res.render('home', { data: response}))
                 .catch ( err => res.render('error', { error: err }))
         })
+
         .post((req, res) =>{
             const { atividade } = req.body;
             const { duracao } = req.body;
             const { horario } = req.body;
             const { descricao } = req.body;
+            const { user } = req.params.user;
             const NewToDo = new ToDo({
                 atividade : atividade,
                 duracao: duracao,
                 horario: horario,
-                descricao: descricao
+                descricao: descricao,
+                autor: user
             });
             NewToDo.save();
-            res.redirect('/');
+            res.redirect('/home/:user');
         })
 
         .delete((req, res) => {
@@ -51,7 +48,7 @@ const Autor = require('./models/ToDo')
         })
     
     //Página de item
-    router.route('/:id')
+    router.route('home/:id')
         .get((req, res) => {
             ToDo.findOne({ _id: req.params.id })
                 .then ( response => res.render('item', { data: response }))
