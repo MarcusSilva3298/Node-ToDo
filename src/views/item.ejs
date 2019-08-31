@@ -1,3 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #6170A1; margin: -40px -60px 40px -60px;">
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/"><h4>Menu</h4><span class="sr-only">(página atual)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/home/<%- data.autor %>"><h4>Página Principal</h4></a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div class = 'container col-lg-12'>
     <!-- CABEÇALHO -->
     <div class = 'row'>
@@ -15,17 +27,17 @@
 
     <!-- update de status do todo-->
     <div class = 'row' style='margin-top: 20px;'>
-        <a class='btn' href='/home' style = 'background-color: #30364C; margin-right: 10px;'><i class="fas fa-undo"></i> Voltar</a><!-- /home/:user -->
+        <a class='btn' href='/home/<%- data.autor %>' style = 'background-color: #30364C; margin-right: 10px;'><i class="fas fa-undo"></i> Voltar</a><!-- /home/:user -->
         <a class='btn' href='/edit/<%- data.id %>' style = 'background-color: #3E4280; margin-right: 10px;'><i class="fas fa-edit"></i> Editar</a>
-        <button class='btn' onclick = "deleteToDo('<%- data.id %>')" style = 'background-color: rgb(158, 6, 6);'><i class="fas fa-trash-alt"></i> Excluir</button>
+        <button class='btn' onclick = "deleteToDo('<%- data.id %>', '<%- data.autor %>')" style = 'background-color: rgb(158, 6, 6);'><i class="fas fa-trash-alt"></i> Excluir</button>
     </div>
 </div>
 
 <script>
-    function deleteToDo(id){
+    function deleteToDo(id, autor){
         fetch(`http://localhost:8000/${id}`, {
             method: 'DELETE'
         })
-        return location.replace('/home')
+        return location.replace(`/home/${ autor }`)
     }
 </script>

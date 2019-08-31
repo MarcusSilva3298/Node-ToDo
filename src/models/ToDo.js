@@ -17,12 +17,10 @@ const ToDoSchema = new Schema({
         type: String,
         default: ' '
     },
-    /*
     autor: {
         type: String,
         required: true
     }
-    */
 })
 
 module.exports = model('ToDo', ToDoSchema)

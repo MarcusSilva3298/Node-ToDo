@@ -1,6 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #6170A1; margin: -40px -60px 40px -60px;">
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/"><h4>Menu</h4><span class="sr-only">(página atual)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/home"><h4>Página Principal</h4></a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div class = 'container col-lg-12'>
     <div class = 'row'>
-        <h2 style='text-transform: capitalize;'>Bem vindo, Marcus!</h2>
+        <h2 style='text-transform: capitalize;'>Bem vindo <%- user %>!</h2>
     </div>
 
     <!-- INPUT DE ToDos -->
@@ -44,7 +56,7 @@
                 <p class = 'text-center' style = 'background-color: #6170A1; border-radius: 7px; margin-right: 15px; width: 525px;'><%- item.atividade %></p>
                 <p class = 'text-center' style = 'text-transform: capitalize; background-color: #6170A1; border-radius: 7px; margin-right: 15px; width: 200px;'><%- item.duracao %></p>
                 <p class = 'text-center' style = 'background-color: #6170A1; border-radius: 7px; margin-right: 15px; width: 200px;'><%- item.horario %></p>
-                <a href = '<%- item.id %>' class = 'btn' style='background-color: #6170A1; margin-top: -7px; margin-bottom: 7px; border-radius: 7px;'><i class="fas fa-search"></i> Detalhes</a>
+                <a href = '/<%- item.id %>' class = 'btn' style='background-color: #6170A1; margin-top: -7px; margin-bottom: 7px; border-radius: 7px;'><i class="fas fa-search"></i> Detalhes</a>
             </div>
         <% }) %>
     </div>

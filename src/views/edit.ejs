@@ -1,3 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #6170A1; margin: -40px -60px 40px -60px;">
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/"><h4>Menu</h4><span class="sr-only">(página atual)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/home/<%- data.autor %>"><h4>Página Principal</h4></a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div class = 'container col-lg-12'>
     <div class = 'row col-lg-9'>
         <div class = 'row'>
@@ -15,7 +27,7 @@
             <div class = 'row' style='margin-top: 10px;'>
                 <label>Nova descrição: </label>
                 <textarea name='nova_descricao' style = 'margin: 0px 10px; width: 86.1%; border-radius: 7px;' rows='5' cols='33'><%- data.descricao %></textarea>
-                <a class='btn' href='/<%- data.id %>' style = 'background-color: rgb(158, 6, 6); margin-right: 10px; margin-top: 20px;'><i class="fas fa-undo"></i> Cancelar</a><!-- /home/:user -->
+                <a class='btn' href='/<%- data.id %>' style = 'background-color: rgb(158, 6, 6); margin-right: 10px; margin-top: 20px;'><i class="fas fa-undo"></i> Cancelar</a>
                 <button class='btn' style='background-color: #30364C; margin-top: 20px;'><i class="fas fa-edit"></i> Atualizar</button>
             </div>
         </form>
