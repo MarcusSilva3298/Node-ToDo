@@ -1,0 +1,23 @@
+<div class = 'container col-lg-12'>
+    <div class = 'row col-lg-9'>
+        <div class = 'row'>
+            <h3 style = 'width: 100%; margin-bottom: 30px;'>Atualizar dados atividade</h3>
+        </div>
+        <form method="POST">
+            <div class = 'row'>
+                <label>Novo nome: </label>
+                <input type='text' name='nova_atividade' required style='margin: 0px 10px; height: 25px; border-radius: 7px;' value = '<%- data.atividade %>'>
+                <label>Nova duração: </label>
+                <input type='text' name='nova_duracao' style='margin: 0px 10px; height: 25px; border-radius: 7px;' value = '<%- data.duracao %>'>
+                <label>Novo horário: </label>
+                <input type='datetime-local' name='novo_horario' style='margin: 0px 10px; height: 25px; border-radius: 7px;' value = '<%- data.horario %>'>
+            </div>
+            <div class = 'row' style='margin-top: 10px;'>
+                <label>Nova descrição: </label>
+                <textarea name='nova_descricao' style = 'margin: 0px 10px; width: 86.1%; border-radius: 7px;' rows='5' cols='33'><%- data.descricao %></textarea>
+                <a class='btn' href='/<%- data.id %>' style = 'background-color: rgb(158, 6, 6); margin-right: 10px; margin-top: 20px;'><i class="fas fa-undo"></i> Cancelar</a><!-- /home/:user -->
+                <button class='btn' style='background-color: #30364C; margin-top: 20px;'><i class="fas fa-edit"></i> Atualizar</button>
+            </div>
+        </form>
+    </div>
+</div>

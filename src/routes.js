@@ -10,14 +10,14 @@ const ToDo = require('./models/ToDo');
         })
 
         .post((req, res) =>{
-            res.redirect('/home/:user')
-            res.req('\${res.params.user}')
+            res.redirect('/home')//home/:user
+            //res.req('\${res.params.user}')
         })
 
     //Página principal
-    router.route('/home/:user')
+    router.route('/home')//home/:user
         .get((req, res) => {
-            ToDo.find({ name: req.params.user })
+            ToDo.find({ /*name: req.params.user*/ })
                 .then( response => res.render('home', { data: response}))
                 .catch ( err => res.render('error', { error: err }))
         })
@@ -27,33 +27,41 @@ const ToDo = require('./models/ToDo');
             const { duracao } = req.body;
             const { horario } = req.body;
             const { descricao } = req.body;
-            const { user } = req.params.user;
+            //const { user } = req.params.user;
             const NewToDo = new ToDo({
                 atividade : atividade,
                 duracao: duracao,
                 horario: horario,
                 descricao: descricao,
-                autor: user
+                //autor: user
             });
             NewToDo.save();
-            res.redirect('/home/:user');
-        })
+            res.redirect('/home');//home/:user
+        });
 
-        .delete((req, res) => {
-            ToDo.findByIdAndDelete( req.params.id )
-                .then (response => console.log('deletado', { data: response }))
-                .err ( err => res.render('error', { error: err }))
-                
-            res.redirect('/')
-        })
-    
     //Página de item
-    router.route('home/:id')
+    router.route('/:id')
         .get((req, res) => {
             ToDo.findOne({ _id: req.params.id })
                 .then ( response => res.render('item', { data: response }))
                 .catch ( err => res.render('error', { error: err }))
 
+        })
+
+        .delete((req, res) => {
+            ToDo.findByIdAndDelete( req.params.id )
+                .then( response => console.log('Deletado'))
+                .catch ( err => res.render('error', { error: err }))
+
+            res.redirect('/home')//home/:user
+        })
+
+    //Página de edição de item
+    router.route('/edit/:id')
+        .get((req, res) => {
+            ToDo.findOne({ _id: req.params.id })
+                .then( response => res.render('edit', { data: response }))
+                .catch ( err => res.render('error', { error: err }))
         })
 
         .post((req, res) => {
@@ -62,16 +70,11 @@ const ToDo = require('./models/ToDo');
                 horario: req.body.novo_horario,
                 descricao: req.body.nova_descricao,
                 duracao: req.body.nova_duracao
-            });
-            res.redirect('/');
-        })
+            })
+                .then( response => console.log('Editado', { data: response }))
+                .catch( err => res.render('error', { error: err }))
 
-        .delete((req, res) => {
-            ToDo.findByIdAndDelete( req.params.id )
-                .then( response => console.log('Deletado'))
-                .catch( err => console.log(err))
-
-            res.redirect('/')
+            res.redirect('/home')
         })
   
 
